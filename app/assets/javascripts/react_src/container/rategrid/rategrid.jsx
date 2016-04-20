@@ -1,7 +1,3 @@
-
-
-
-
 import React from 'react';
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
@@ -13,7 +9,7 @@ import AppBar from 'material-ui/lib/app-bar';
 import Divider from 'material-ui/lib/divider';
 import Paper from 'material-ui/lib/paper';
 import TextField from 'material-ui/lib/text-field';
-
+import dummyData from '../../../dummyData/index'
 import {connect} from 'react-redux'
 
 
@@ -52,7 +48,7 @@ class RateGrid extends React.Component{
                 <Card >
 
                     <h2 style={styles.head}>竞争对手价格</h2>
-                    <Table data={dummydata.allObj[`${this.props.params.hotelId}`]}/>
+                    <Table data={dummyData.allObj[`${this.props.params.hotelId}`]}/>
 
                 </Card>
             </Paper>
@@ -67,5 +63,3 @@ function mapStateToProps(state){
 
 
 export default connect(mapStateToProps,{get_rate_data})( RateGrid );
-
-
