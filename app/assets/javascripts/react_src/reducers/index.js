@@ -10,12 +10,14 @@ import ratedata from './rategrid/rategrid.jsx'
 
 import logdata from './log/log.jsx'
 
+
 const rootReducer = combineReducers({
   authenticated: AuthReducer,
   form:formReducer,
   sidebar_open:OpenStatus,
   user_hotels:userHotels,
-  log_data:logdata
+  log_data:logdata,
+  rate_data:ratedata
 });
 
 export default rootReducer;

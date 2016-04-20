@@ -42,17 +42,26 @@ const styles = {
 
 class RateGrid extends React.Component{
 
-
+   componentWillMount(){
+       this.props.get_rate_data(this.props.params.hotelId)
+   }
 
     render() {
 
+        const _getTable=()=>{
 
+            if(this.props.rate_data.length==0){
+                return <h1>Loading</h1>
+            }
+            return <Table data={this.props.rate_data}/>
+        }
+        //<Table data={this.props.rate_data}/>
         return (
             <Paper style={styles.paper} zDepth={1}>
                 <Card >
 
                     <h2 style={styles.head}>竞争对手价格</h2>
-                    <Table data={dummydata.allObj[`${this.props.params.hotelId}`]}/>
+                    {_getTable()}
 
                 </Card>
             </Paper>
@@ -61,7 +70,7 @@ class RateGrid extends React.Component{
     }
 }
 function mapStateToProps(state){
-    return {ratedata:state.ratedata
+    return {rate_data:state.rate_data
     }
 }
 
