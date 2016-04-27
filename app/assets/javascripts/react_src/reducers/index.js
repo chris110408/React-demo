@@ -9,7 +9,7 @@ import userHotels from './topbar/user_hotels.jsx'
 import ratedata from './rategrid/rategrid.jsx'
 
 import logdata from './log/log.jsx'
-
+import calendar from './calendar/calendar.jsx'
 
 const rootReducer = combineReducers({
   authenticated: AuthReducer,
@@ -17,7 +17,8 @@ const rootReducer = combineReducers({
   sidebar_open:OpenStatus,
   user_hotels:userHotels,
   log_data:logdata,
-  rate_data:ratedata
+  ratedata:ratedata,
+  catendar_state:calendar
 });
 
 export default rootReducer;

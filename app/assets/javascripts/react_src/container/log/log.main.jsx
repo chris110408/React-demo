@@ -72,7 +72,7 @@ class MyDownLoadCell extends React.Component {
 const logList=(id)=>{
 
 
-    return [].concat(dummy.outPut[id])
+    return [].concat(dummy.logData[id])
 }
 
 class Log extends React.Component {

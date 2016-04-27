@@ -13,6 +13,9 @@ const createStoreWithMiddleware = applyMiddleware()(createStore);
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+require ("../../stylesheets/calendar/calendar.scss");
+
+
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
         <Router history={hashHistory} routes={routes}/>

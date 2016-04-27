@@ -5,8 +5,8 @@
 
 import Boyi from './boyi.data'
 
-import {allObj,outPut} from './combine.data.fun';
+import {allObj,logData,OutPut} from './combine.data.fun';
 
 
-export default {Boyi,allObj,outPut}
+export default {Boyi,allObj,logData,OutPut}
 

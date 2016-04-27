@@ -1,12 +1,12 @@
 
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 
 
 module.exports = {
-
+    devtool:'inline-source-map',
     entry: [
         './app/assets/javascripts/react_src/app.jsx'
     ],
@@ -20,19 +20,22 @@ module.exports = {
             test: /(\.js|\.jsx)$/,
             exclude: /node_modules/,
             loader: 'babel'
-             },
-            {test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")}
-
+        },
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")}
+            , {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            }
 
         ]
     },
     postcss: [autoprefixer],
     plugins: [
-        new ExtractTextPlugin('/style/style.css',{ allChunks: true })
+        new ExtractTextPlugin('style.css',{ allChunks: true })
     ],
 
     resolve: {
-        extensions: ['', '.js','.scss', '.jsx','.json']
+        extensions: ['', '.js','.scss', '.css','.jsx','.json']
 
     },
     devServer: {

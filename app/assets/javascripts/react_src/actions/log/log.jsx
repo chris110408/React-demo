@@ -7,7 +7,7 @@ export const LOG_DATA= 'LOG_DATA'
 
 
 export function get_log_data(id){
-    const request = [].concat(DummyData.outPut[id])
+    const request = [].concat(DummyData.logData[id])
 
     return {
         type:LOG_DATA,

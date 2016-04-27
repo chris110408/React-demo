@@ -23,7 +23,6 @@ class TopBar extends  React.Component
 
 
     handleToggle = () =>{
-        console.log('hi')
         let open = this.props.isOpen
         this.props.openSideBar(!open);
     }

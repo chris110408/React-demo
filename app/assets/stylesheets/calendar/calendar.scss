@@ -1,0 +1,77 @@
+
+
+$boaderColor: #3b91ad;
+
+$todayColor: #0c87ad;
+$selectColor : #4aad83;
+
+
+.toolbar{
+
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+
+  .toolbar-big{
+    width:14.3%;
+
+  }
+  .toolbar-small{
+
+    width:14.3%;
+  }
+}
+
+
+.mc-month{
+
+
+
+  .mc-row {
+
+
+    display: flex;
+
+    width: 100%;
+    border-left: 1px solid  $boaderColor;
+    border-bottom: 1px solid  $boaderColor;
+  }
+
+
+  .mc-header {
+
+    border-top: 1px solid  $boaderColor;
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+
+  .mc-col{
+    width:14.3%;
+    border-right: 1px solid  $boaderColor;
+
+  }
+
+  .day.inactive {
+    background-color: #f8f8f8;
+    color: #ccc;
+  }
+
+  .price-event {
+    background-color: #88e4ff;
+    height: 46px;
+    text-align: center;
+  }
+
+  .today {
+
+    background-color: $todayColor;
+  }
+  .select {
+    background-color: $selectColor;
+
+  }
+
+}
+
+
