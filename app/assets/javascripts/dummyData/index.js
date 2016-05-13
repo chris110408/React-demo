@@ -5,8 +5,12 @@
 
 import Boyi from './boyi.data'
 
-import {allObj,logData,OutPut} from './combine.data.fun';
+import {allObj,logData,OutPut,hotelData_OverView,compData_OverView} from './combine.data.fun';
 
 
-export default {Boyi,allObj,logData,OutPut}
+import {ramda} from './ramda.test'
+
+import {mytest} from './test'
+
+export default {Boyi,allObj,logData,OutPut,hotelData_OverView,compData_OverView,ramda,mytest}
 

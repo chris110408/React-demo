@@ -3,6 +3,8 @@ import React,{ Component , PropTypes} from 'react';
 import { reduxForm } from 'redux-form';
 import {loginPost,authenticate} from '../../actions/index.jsx'
 import {Link} from 'react-router'
+import output from '../../../dummyData/index'
+
 
 class Login extends Component {
 
@@ -42,8 +44,8 @@ class Login extends Component {
     }
 
     render(){
+        console.log(output.mytest)
         const {fields:{uname,upassword},handleSubmit} = this.props;
-
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
                 <h3>User Login</h3>

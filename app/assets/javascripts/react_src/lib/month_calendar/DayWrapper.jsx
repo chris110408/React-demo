@@ -2,6 +2,7 @@ import React,{Component}from 'react';
 import classnames from 'classnames';
 import EventWrapper from './EventWrapper.jsx'
 import moment from 'moment';
+import Badge from 'material-ui/lib/Badge';
 class DayWrapper extends Component {
 
     constructor(props){
@@ -27,8 +28,10 @@ class DayWrapper extends Component {
 
         return <div
             className={dayClasses} onClick={this.props.DayWrapper_DayClick.bind(null,day,currentDate)}
-           >
+              >
+
             <div className='date'>{day.day}</div>
+
             <EventWrapper
                 eventtarget={this.props.eventtarget}
                 day = {day}

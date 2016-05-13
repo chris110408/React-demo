@@ -17,7 +17,7 @@ const CompList = (i)=>{
 let BoyiData = (Array(3).fill(1)).map((c,i)=>{
     return {
         id: 8000+i+1,
-        name: `博益示范酒店－${BoyiName[i]}`,
+        name: `示范酒店－${BoyiName[i]}`,
         provice: '北京',
         Area:'CBD',
         complist:CompList(i),

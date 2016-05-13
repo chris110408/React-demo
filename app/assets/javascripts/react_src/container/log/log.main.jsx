@@ -93,7 +93,7 @@ class Log extends React.Component {
     render() {
 
 
-        console.log(this.props.logdata)
+      console.log(this.props.logdata)
 
         return (
 

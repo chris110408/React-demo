@@ -11,6 +11,8 @@ import ratedata from './rategrid/rategrid.jsx'
 import logdata from './log/log.jsx'
 import calendar from './calendar/calendar.jsx'
 
+import overview from './overview/overview.jsx'
+
 const rootReducer = combineReducers({
   authenticated: AuthReducer,
   form:formReducer,
@@ -18,7 +20,8 @@ const rootReducer = combineReducers({
   user_hotels:userHotels,
   log_data:logdata,
   ratedata:ratedata,
-  catendar_state:calendar
+  catendar_state:calendar,
+  overview_state:overview
 });
 
 export default rootReducer;

@@ -1,10 +1,17 @@
 
 
-$boaderColor: #3b91ad;
+$boaderColor: #dbdbdb;
 
 $todayColor: #0c87ad;
-$selectColor : #4aad83;
+$selectColor : #e4e821;
+$dayBackGround-color: #00BCD4;
+$datecolor: #ccc;
 
+$distance:3px;
+
+#tool-tip-outstand{
+  color:red;
+}
 
 .toolbar{
 
@@ -26,52 +33,104 @@ $selectColor : #4aad83;
 .mc-month{
 
 
-
+  cursor: pointer;
   .mc-row {
 
-
     display: flex;
-
     width: 100%;
-    border-left: 1px solid  $boaderColor;
-    border-bottom: 1px solid  $boaderColor;
+    margin-bottom: $distance;
+    //border-left: 2px solid  $boaderColor;
+    //border-bottom: 2px solid  $boaderColor;
+
   }
 
 
   .mc-header {
-
-    border-top: 1px solid  $boaderColor;
+    cursor:default;
+    border-top: 2px solid  $boaderColor;
     display: flex;
+    text-align: center;
     flex-wrap: nowrap;
+    color:white;
+
   }
 
 
   .mc-col{
+    box-shadow: 3px 3px 3px grey;
     width:14.3%;
-    border-right: 1px solid  $boaderColor;
+    //border-right: 2px solid  $boaderColor;
+    margin-right: $distance;
+    background-color:$dayBackGround-color;
 
+    .price{
+      font-weight: bold;
+      font-size: 1.8em;
+      clear:both;
+    }
+
+    .suggestion{
+     float:left;
+      margin-left:5px;
+
+    }
+
+    color:white;
+    .date{
+       float: right;
+       color:$datecolor;
+       font-size: 0.85em;
+       margin-right:10px
+
+    }
   }
 
   .day.inactive {
-    background-color: #f8f8f8;
-    color: #ccc;
+    background-color: #a4a4a4;
+    color: $datecolor;
+
+    .price-event {
+      background-color: #a4a4a4;
+      clear:both;
+      height: 56px;
+      text-align: center;
+    }
   }
 
   .price-event {
-    background-color: #88e4ff;
-    height: 46px;
+    clear:both;
+    background-color: $dayBackGround-color;
+    height: 56px;
     text-align: center;
   }
 
   .today {
 
     background-color: $todayColor;
+    .price-event {
+      clear:both;
+      background-color: $todayColor;
+      height: 56px;
+      text-align: center;
+    }
   }
   .select {
-    background-color: $selectColor;
+    .price{
 
+      color:$selectColor;
+      font-weight: bold;
+      font-size: 1.8em;
+
+      margin-right:3px;
+
+    }
   }
 
 }
 
+
+.public_fixedDataTableCell_cellContent{
+  font-size: 0.7em ;
+  text-align: center;
+}
 

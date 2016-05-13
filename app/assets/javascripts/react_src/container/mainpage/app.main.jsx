@@ -30,6 +30,9 @@ const LeftNavlinks = [
     },{
         link:"/log",
         name:"目录"
+    },{
+        link:"/overview",
+        name:"汇总"
     }
 ];
 

@@ -21,3 +21,11 @@ export {get_log_data,LOG_DATA} from './log/log.jsx'
 
 export {CALENDAR_DATA,EVENT_STATUS,CURRENT_DATE} from './calendar/calendar.jsx'
 export {get_calendar_data,get_event_status,get_current_date} from './calendar/calendar.jsx'
+
+
+//overview
+
+export {HOTEL_DATA,COMP_DATA} from './overview/OverView.jsx'
+export {get_hotel_data,get_comp_data} from './overview/OverView.jsx'
+
+

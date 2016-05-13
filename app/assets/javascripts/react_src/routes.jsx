@@ -10,6 +10,7 @@ import Calendar from './container/calendar/calendar.main.jsx'
 
 import RateGrid from './container/rategrid/rategrid.jsx'
 import Log from './container/log/log.main.jsx'
+import OverView from './container/OverView/OverView.jsx'
 import AppConfig from './container/appconfig/config.main.jsx'
 import AuthWrap from './HOF/require_auth.jsx'
 import HotelList from './HOF/hotellist.jsx'
@@ -39,6 +40,7 @@ export default (
             <IndexRoute component={Calendar}/>
             <Route path = "rategrid" component ={RateGrid}/>
             <Route path = "log" component ={Log}/>
+            <Route path = "overview" component ={OverView}/>
         </Route>
        <Route path="/config" component = {AppConfig}>
        </Route>

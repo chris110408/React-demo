@@ -60,19 +60,26 @@ class Calendar extends React.Component{
             this.props.get_calendar_data(this.props.params.hotelId)
     }
 
-
-    shouldComponentUpdate(nextProps, nextState) {
-
-
-    return true
-   }
-
-    componentWillUpdate(){
-
+    shouldComponentUpdate(nextProps, nextState){
+    // return a boolean value
+        if(nextProps!==this.props){
+            return true;
+        }
+       return false
 
     }
+    componentWillUpdate(nextProps, nextState){
 
-   //singleevent at day event
+
+        if(nextProps.params!==this.props.params){
+            let current=moment();
+            this.props.get_current_date(current)
+            this.props.get_calendar_data(this.props.params.hotelId)
+        }
+
+    // perform any preparations for an upcoming update
+}
+
 
     DayEvent_handleMouseOver= (refid,eventdata) => {
 
@@ -165,6 +172,7 @@ class Calendar extends React.Component{
     render(){
 
         let caldata = this.getDataThisMonth()
+
         const herf=this.props.params.hotelId
 
         const popdata=(data)=>{
@@ -183,7 +191,7 @@ class Calendar extends React.Component{
                 return <h1>Loading</h1>
             }
 
-            return  <MyCalendar
+            return  <MyCalendar className="mc-calendar"
                         DayEvent_handleMouseOver={this.DayEvent_handleMouseOver}
                         DayEvent_handleMouseOut={this.DayEvent_handleMouseOut}
                         currentDate={this.props.state.current_date}
@@ -205,13 +213,13 @@ class Calendar extends React.Component{
 
 
                         {_loadingData()}
-                        <ReactTooltip id={this.props.state.event_status.refid} type='error'>
+                        <ReactTooltip id={this.props.state.event_status.refid} type='warning'>
                             <p>酒店价格信息</p>
                             <ul> <li>基础房价: {this.props.state.event_status.eventdata.current_price}</li>
                                 <li>竞争对手最高: {this.props.state.event_status.eventdata.max_competitor}</li>
                                 <li>竞争对手平均: {this.props.state.event_status.eventdata.avg_competitor}</li>
                                 <li>价格指数: {this.props.state.event_status.eventdata.price_index}</li>
-                                <li>房价建议: {this.props.state.event_status.eventdata.price_suggestion}</li>
+                                <li id="tool-tip-outstand">房价建议: {this.props.state.event_status.eventdata.price_suggestion}</li>
                             </ul>
 
                         </ReactTooltip>

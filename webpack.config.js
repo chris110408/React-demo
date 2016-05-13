@@ -6,7 +6,7 @@ var autoprefixer = require('autoprefixer');
 
 
 module.exports = {
-    devtool:'inline-source-map',
+    devtool: 'eval-source-map',
     entry: [
         './app/assets/javascripts/react_src/app.jsx'
     ],
@@ -20,7 +20,7 @@ module.exports = {
             test: /(\.js|\.jsx)$/,
             exclude: /node_modules/,
             loader: 'babel'
-        },
+             },
             {test: /\.scss$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!sass-loader")}
             , {
                 test: /\.css$/,
@@ -40,6 +40,8 @@ module.exports = {
     },
     devServer: {
         historyApiFallback: true,
-        contentBase: './'
+        hot: true,
+        inline: true,
+        progress: true
     }
 };

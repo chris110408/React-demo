@@ -6,7 +6,7 @@ import Comp from './comp.data'
 import Boyi from './boyi.data'
 import _ from 'lodash'
 import moment from 'moment'
-
+import R from 'ramda';
 
 const boyi5 = _.keyBy(MyFun.ascRate(90,8001,480,Boyi),'stay_date_CN');
 const comp5_1 = _.keyBy(MyFun.flatRate(90,1001,520,Comp),'stay_date_CN');
@@ -219,6 +219,15 @@ let b3Cal =  calPricefact(preobj3list,b3)
 
 
 
+
+//compdata
+
+
+
+
+
+
+
 let caldata = {
     8001:b5Cal,
     8002:b4Cal,
@@ -409,4 +418,92 @@ let allObj={
 
 let OutPut =temp
 
-export {allObj,logData,OutPut}
+
+
+
+
+
+let compPrice= (compList,boyi) =>{
+
+    let compsObj=calpreFact(compList)
+    console.log(compsObj)
+    let data = transkey(calpriceMaker ({},compsObj))
+    return data
+}
+
+
+
+
+
+
+let myCompfunc=(obj)=> calpreFact(obj)
+
+let id=(x)=>x
+let createNewObj = (cb,obj,keyObjs)=>{
+
+
+    let addKey=(acc,keyObj)=>{
+
+        let newkey =keyObj.newkey;
+        let oldkey = keyObj.oldkey;
+        let keytoday=moment().format("YYYY-MM-DD")
+        var dayDiff = moment(newkey).diff(moment(keytoday), 'days');
+
+        acc[''+newkey]= cb(obj[''+oldkey]);
+        acc[''+newkey].dayDiff= dayDiff;
+        return acc
+    }
+
+    return R.reduce(addKey,{})(keyObjs)
+
+};
+
+let RC_createNewObj = R.curry(createNewObj);
+
+
+
+const transComp=(CompObj)=>{
+    let _CompObj = myCompfunc(CompObj);
+    return R.compose(
+        RC_createNewObj(id,_CompObj),R.map(keyTrans), R.keys)(_CompObj)
+
+}
+
+let b5Comp =   transComp(preobj5list)
+let b4Comp =   transComp(preobj4list)
+let b3Comp =   transComp(preobj3list)
+
+let allCompObj={
+    8001:b5Comp,
+    8002:b4Comp,
+    8003:b3Comp,
+}
+
+let convertHotel=(x)=>{
+    x['price'] = x[R.keys(x)[0]];
+    return x
+}
+
+
+
+const transHotel=(hotelObj)=>{
+    return  R.compose(RC_createNewObj(convertHotel,hotelObj),R.map(keyTrans), R.keys)(hotelObj)
+}
+
+
+let b5hotel =  transHotel(b5)
+let b4hotel =  transHotel(b4)
+let b3hotel =  transHotel(b3)
+
+let allHotelObj={
+    8001:b5hotel,
+    8002:b4hotel,
+    8003:b3hotel,
+}
+
+
+
+let hotelData_OverView=allHotelObj
+let compData_OverView=allCompObj
+
+export {allObj,logData,OutPut,hotelData_OverView,compData_OverView}

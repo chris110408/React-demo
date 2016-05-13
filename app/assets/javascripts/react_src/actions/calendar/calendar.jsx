@@ -9,6 +9,8 @@ export const CURRENT_DATE= ' CURRENT_DATE'
 
 export function get_calendar_data(hotelId){
     let data =  DummyData.OutPut(hotelId)
+    console.log('calendar api')
+    console.log(data)
     const request=data[hotelId]
     return {
         type:CALENDAR_DATA,

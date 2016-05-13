@@ -178,17 +178,19 @@ class MonthCalendar extends Component{
 
                 })
 
-                return <DayWrapper
-                            key = {'day'+id}
-                            day={day}
-                            DayWrapper_DayClick = {this.props.DayWrapper_DayClick}
-                            DayEvent_handleMouseOver = {this.props.DayEvent_handleMouseOver}
-                            DayEvent_handleMouseOut = {this.props.DayEvent_handleMouseOut}
-                            currentDate = {this.props.currentDate}
-                            today = {this.props.today}
-                        />
+                return(
 
+                    <DayWrapper
+                                key = {'day'+id}
+                                day={day}
+                                DayWrapper_DayClick = {this.props.DayWrapper_DayClick}
+                                DayEvent_handleMouseOver = {this.props.DayEvent_handleMouseOver}
+                                DayEvent_handleMouseOut = {this.props.DayEvent_handleMouseOut}
+                                currentDate = {this.props.currentDate}
+                                today = {this.props.today}
+                            />
 
+                )
             })}
                 </div>
     }
