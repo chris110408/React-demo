@@ -9,6 +9,7 @@ import {Route,IndexRoute} from 'react-router';
 import Calendar from './container/calendar/calendar.main.jsx'
 
 import RateGrid from './container/rategrid/rategrid.jsx'
+import RateGrid_cap from './container/rategrid_cap/rategrid_cap.jsx'
 import Log from './container/log/log.main.jsx'
 import OverView from './container/OverView/OverView.jsx'
 import AppConfig from './container/appconfig/config.main.jsx'
@@ -41,6 +42,7 @@ export default (
             <Route path = "rategrid" component ={RateGrid}/>
             <Route path = "log" component ={Log}/>
             <Route path = "overview" component ={OverView}/>
+            <Route path = "rategrid_cap" component ={RateGrid_cap}/>
         </Route>
        <Route path="/config" component = {AppConfig}>
        </Route>

@@ -12,6 +12,7 @@ export {getuserhotels,get_current_hotel,USER_HOTELS,CURRENT_HOTEL} from './topba
 //rategrid
 
 export {get_rate_data,RATE_DATA} from './rategrid/getratedata.jsx'
+export {get_rate_data_cap,RATE_DATA_CAP} from './rategrid_cap/getratedata_cap.jsx'
 
 //log
 export {get_log_data,LOG_DATA} from './log/log.jsx'

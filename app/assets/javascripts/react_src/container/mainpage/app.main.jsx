@@ -33,6 +33,9 @@ const LeftNavlinks = [
     },{
         link:"/overview",
         name:"汇总"
+    },{
+        link:"/rategrid_cap",
+        name:"价格2"
     }
 ];
 
