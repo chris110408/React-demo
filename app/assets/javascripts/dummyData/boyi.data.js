@@ -4,7 +4,7 @@
 
 import _ from 'lodash'
 
-const BoyiName=['紫微','文昌','文曲','天府','禄存']
+const BoyiName=['紫微5星','文昌4星','文曲3星','天府','禄存']
 
 const CompList = (i)=>{
     let arr= Array(5).fill((i)*5)

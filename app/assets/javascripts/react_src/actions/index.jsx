@@ -13,6 +13,7 @@ export {getuserhotels,get_current_hotel,USER_HOTELS,CURRENT_HOTEL} from './topba
 
 export {get_rate_data,RATE_DATA} from './rategrid/getratedata.jsx'
 export {comp_cd_fetchIfNeeded, COMP_CD_INVALID, COMP_CD_REQ, COMP_CD_RECV} from './rategrid_cap/getratedata_cap.jsx'
+export {comp_sd_fetchIfNeeded, COMP_SD_INVALID, COMP_SD_REQ, COMP_SD_RECV} from './rategrid_stay/getratedata_stay.jsx'
 
 //log
 export {get_log_data,LOG_DATA} from './log/log.jsx'

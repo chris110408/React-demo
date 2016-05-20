@@ -14,7 +14,7 @@ import ThemeManager from 'material-ui/lib/styles/theme-manager';
 // leftNav 属性   ------
 const LeftNavConfig={
     docked:false,
-    width:80
+    width:120
 }
 
 
@@ -35,7 +35,10 @@ const LeftNavlinks = [
         name:"汇总"
     },{
         link:"/rategrid_cap",
-        name:"价格2"
+        name:"实时价格"
+    },{
+        link:"/rategrid_stay",
+        name:"价格波动"
     }
 ];
 

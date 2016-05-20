@@ -10,6 +10,7 @@ import Calendar from './container/calendar/calendar.main.jsx'
 
 import RateGrid from './container/rategrid/rategrid.jsx'
 import RateGrid_cap from './container/rategrid_cap/rategrid_cap.jsx'
+import RateGrid_stay from './container/rategrid_stay/rategrid_stay.jsx'
 import Log from './container/log/log.main.jsx'
 import OverView from './container/OverView/OverView.jsx'
 import AppConfig from './container/appconfig/config.main.jsx'
@@ -43,6 +44,7 @@ export default (
             <Route path = "log" component ={Log}/>
             <Route path = "overview" component ={OverView}/>
             <Route path = "rategrid_cap" component ={RateGrid_cap}/>
+            <Route path = "rategrid_stay" component ={RateGrid_stay}/>
         </Route>
        <Route path="/config" component = {AppConfig}>
        </Route>

@@ -5,6 +5,9 @@ import {loginPost,authenticate} from '../../actions/index.jsx'
 import {Link} from 'react-router'
 import output from '../../../dummyData/index'
 
+const styles = {
+    maxWidth: '300px',
+};
 
 class Login extends Component {
 
@@ -48,16 +51,17 @@ class Login extends Component {
         const {fields:{uname,upassword},handleSubmit} = this.props;
         return (
             <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                <h1>BoyiRMS</h1>
                 <h3>User Login</h3>
-                <div className={`form-group ${uname.touched && uname.invalid ? 'has-danger':''}`}>
-                    <label>User Name</label>
+                <div style={styles} className={`form-group ${uname.touched && uname.invalid ? 'has-danger':''}`}>
+                    <label>Username</label>
                     <input type="text" className ="form-control" {...uname}/>
                     <div className="text-help">
                         {uname.touched?uname.error:''}
                     </div>
                 </div>
 
-                <div className={`form-group ${upassword.touched && upassword.invalid ? 'has-danger':''}`}>
+                <div style={styles} className={`form-group ${upassword.touched && upassword.invalid ? 'has-danger':''}`}>
                     <label>Password</label>
                     <input type="text" className ="form-control" {...upassword}/>
                     <div className="text-help">

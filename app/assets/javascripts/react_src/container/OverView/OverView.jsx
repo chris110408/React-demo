@@ -67,6 +67,8 @@ class OverView extends React.Component {
 
         const useForTablePrices=getPrice(this.props.state)
 
+        console.log('overview PriceData: ', PriceData)
+
         return (
 
             <Paper style={styles.paper} zDepth={1}>

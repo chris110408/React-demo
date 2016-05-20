@@ -13,11 +13,10 @@ import AppBar from 'material-ui/lib/app-bar';
 import Divider from 'material-ui/lib/divider';
 import Paper from 'material-ui/lib/paper';
 import TextField from 'material-ui/lib/text-field';
-// import dummyData from '../../../dummyData/index'
 import {connect} from 'react-redux'
 
 
-import {comp_cd_fetchIfNeeded} from '../../actions/index.jsx'
+import {comp_sd_fetchIfNeeded} from '../../actions/index.jsx'
 
 const styles = {
     head: {
@@ -40,32 +39,32 @@ const styles = {
 
 
 
-class RateGrid extends React.Component{
+class RateGrid_stay extends React.Component{
     constructor(props) {
         super(props)
     }
 
     componentDidMount() {
      const { dispatch } = this.props
-        dispatch(comp_cd_fetchIfNeeded())
+        dispatch(comp_sd_fetchIfNeeded())
     }
-
 
     componentWillMount(){
         const { dispatch } = this.props
 
-        dispatch(comp_cd_fetchIfNeeded())
+        dispatch(comp_sd_fetchIfNeeded())
     }
+
 
     render() {
         const { async_data, isFetching, lastUpdated } = this.props
-        console.log('render async_data: ', async_data, ' isFetching: ', isFetching, ' lastUpdated: ', lastUpdated)
+        console.log('render stay async_data: ', async_data, ' isFetching: ', isFetching, ' lastUpdated: ', lastUpdated)
     
 
         const _getTable=()=>{
 
             if(async_data.length==0){
-                return <h1>Loading data by capdate</h1>
+                return <h1>Loading data by staydate</h1>
             }
             return <Table data={async_data}/>
         }
@@ -74,7 +73,7 @@ class RateGrid extends React.Component{
             <Paper style={styles.paper} zDepth={1}>
                 <Card >
 
-                    <h2 style={styles.head}>竞争对手价格(by capdate)</h2>
+                    <h2 style={styles.head}>竞争对手价格(by staydate)</h2>
                     {_getTable()}
 
                 </Card>
@@ -84,7 +83,7 @@ class RateGrid extends React.Component{
     }
 }
 
-RateGrid.propTypes = {
+RateGrid_stay.propTypes = {
   async_data: PropTypes.array.isRequired,
   isFetching: PropTypes.bool.isRequired,
   lastUpdated: PropTypes.number,
@@ -92,12 +91,12 @@ RateGrid.propTypes = {
 }
 
 function mapStateToProps(state) {
-  const { data_comp_cd_state } = state
+  const { data_comp_sd_state } = state
   const {
     isFetching,
     lastUpdated,
     async_data
-  } = data_comp_cd_state || {
+  } = data_comp_sd_state || {
     isFetching: true,
     async_data: []
   }
@@ -110,6 +109,6 @@ function mapStateToProps(state) {
 }
 
 
-export default connect(mapStateToProps)( RateGrid );
+export default connect(mapStateToProps)( RateGrid_stay );
 
 
