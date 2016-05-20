@@ -2,7 +2,7 @@
 
 
 
-import React from 'react';
+import React, {PropTypes} from 'react';
 import Card from 'material-ui/lib/card/card';
 import CardActions from 'material-ui/lib/card/card-actions';
 import CardHeader from 'material-ui/lib/card/card-header';
@@ -17,7 +17,7 @@ import TextField from 'material-ui/lib/text-field';
 import {connect} from 'react-redux'
 
 
-import {get_rate_data_cap} from '../../actions/index.jsx'
+import {comp_cd_fetchIfNeeded} from '../../actions/index.jsx'
 
 const styles = {
     head: {
@@ -41,21 +41,32 @@ const styles = {
 
 
 class RateGrid extends React.Component{
-
-
-    componentWillMount(){
-
-        this.props.get_rate_data_cap(this.props.params.hotelId);
+    constructor(props) {
+        super(props)
     }
 
+    componentDidMount() {
+     const { dispatch } = this.props
+        dispatch(comp_cd_fetchIfNeeded())
+    }
+
+
+    // componentWillMount(){
+
+    //     this.props.get_rate_data_cap(this.props.params.hotelId);
+    // }
+
     render() {
+        const { async_data, isFetching, lastUpdated } = this.props
+        console.log('render async_data: ', async_data, ' isFetching: ', isFetching, ' lastUpdated: ', lastUpdated)
+    
 
         const _getTable=()=>{
 
-            if(this.props.rate_data_cap.length==0){
+            if(async_data.length==0){
                 return <h1>Loading data by capdate</h1>
             }
-            return <Table data={this.props.rate_data_cap}/>
+            return <Table data={async_data}/>
         }
 
         return (
@@ -71,12 +82,33 @@ class RateGrid extends React.Component{
         )
     }
 }
-function mapStateToProps(state){
-    return {rate_data_cap:state.ratedata_cap
-    }
+
+RateGrid.propTypes = {
+  async_data: PropTypes.array.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  lastUpdated: PropTypes.number,
+  dispatch: PropTypes.func.isRequired
+}
+
+function mapStateToProps(state) {
+  const { data_comp_cd_state } = state
+  const {
+    isFetching,
+    lastUpdated,
+    async_data
+  } = data_comp_cd_state || {
+    isFetching: true,
+    async_data: []
+  }
+
+  return {
+    async_data,
+    isFetching,
+    lastUpdated
+  }
 }
 
 
-export default connect(mapStateToProps,{get_rate_data_cap})( RateGrid );
+export default connect(mapStateToProps)( RateGrid );
 
 

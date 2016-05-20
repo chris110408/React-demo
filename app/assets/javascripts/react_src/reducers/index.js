@@ -7,7 +7,7 @@ import OpenStatus from './sidebar/sidebar.jsx'
 
 import userHotels from './topbar/user_hotels.jsx'
 import ratedata from './rategrid/rategrid.jsx'
-import ratedata_cap from './rategrid_cap/rategrid_cap.jsx'
+import data_comp_cd_state from './rategrid_cap/rategrid_cap.jsx'
 
 import logdata from './log/log.jsx'
 import calendar from './calendar/calendar.jsx'
@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
   user_hotels:userHotels,
   log_data:logdata,
   ratedata:ratedata,
-  ratedata_cap:ratedata_cap,
+  data_comp_cd_state:data_comp_cd_state,
   catendar_state:calendar,
   overview_state:overview
 });
