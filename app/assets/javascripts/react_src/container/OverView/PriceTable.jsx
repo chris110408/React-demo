@@ -13,7 +13,6 @@ import PriceSubTable from './PriceSubTable.jsx'
 function PriceTable({className,PriceData}){
 
 
-    console.log(PriceData)
 
     const _loadingData = ()=>{
 

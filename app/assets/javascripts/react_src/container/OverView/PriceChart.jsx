@@ -61,11 +61,47 @@ function PriceChart({PriceData}){
             return <h1>Loading</h1>
         }
 
-        const HotelPrices = R.compose(R.pluck('price'),R.values)(PriceData.HOTEL_DATA)
-        const CompPrices = R.compose(R.pluck('avg_competitor'),R.values)(PriceData.COMP_DATA)
+        const Filter =(title,data)=> R.compose(R.pluck(title),R.values)(data);
 
-        config.series[0].data=HotelPrices
-        config.series[1].data=CompPrices;
+
+        let datas = [];
+
+
+        let data1 = {
+           title:'price',
+           data: PriceData.HOTEL_DATA
+        }
+
+        let data2 = {
+            title:'avg_competitor',
+            data: PriceData.COMP_DATA
+        }
+        datas.push(data1);
+        datas.push(data2);
+       console.log('test');
+
+        datas.forEach((elt,i)=>{
+
+            config.series[i].data=Filter(elt.title,elt.data);
+
+        })
+
+
+
+
+        //temp replaced by above code
+        //const HotelPrices = R.compose(R.pluck('price'),R.values)(PriceData.HOTEL_DATA)
+        //const CompPrices = R.compose(R.pluck('avg_competitor'),R.values)(PriceData.COMP_DATA)
+        //
+        //config.series[0].data=HotelPrices
+        //config.series[1].data=CompPrices;
+
+
+
+
+
+
+
 
         return   <ReactHighcharts config={config} />
 
