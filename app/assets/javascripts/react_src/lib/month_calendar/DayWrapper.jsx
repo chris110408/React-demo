@@ -2,7 +2,7 @@ import React,{Component}from 'react';
 import classnames from 'classnames';
 import EventWrapper from './EventWrapper.jsx'
 import moment from 'moment';
-import Badge from 'material-ui/lib/Badge';
+import Badge from 'material-ui/lib/badge';
 class DayWrapper extends Component {
 
     constructor(props){

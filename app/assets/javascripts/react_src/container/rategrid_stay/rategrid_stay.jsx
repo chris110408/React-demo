@@ -14,7 +14,7 @@ import Divider from 'material-ui/lib/divider';
 import Paper from 'material-ui/lib/paper';
 import TextField from 'material-ui/lib/text-field';
 import {connect} from 'react-redux'
-
+import PriceChart from '../priceChart.jsx'
 
 import {comp_sd_fetchIfNeeded} from '../../actions/index.jsx'
 
@@ -46,11 +46,13 @@ class RateGrid_stay extends React.Component{
 
     componentDidMount() {
      const { dispatch } = this.props
+     console.log('rategrid_stay DidMount')
         dispatch(comp_sd_fetchIfNeeded())
     }
 
     componentWillMount(){
         const { dispatch } = this.props
+        console.log('rategrid_stay WillMount')
 
         dispatch(comp_sd_fetchIfNeeded())
     }
@@ -59,21 +61,46 @@ class RateGrid_stay extends React.Component{
     render() {
         const { async_data, isFetching, lastUpdated } = this.props
         console.log('render stay async_data: ', async_data, ' isFetching: ', isFetching, ' lastUpdated: ', lastUpdated)
-    
+
+        const chartSettings = {
+            title: '定价随数据采集日期的变化',
+            yTitle: '定价(¥)',
+            xName: 'cap_date'
+        }        
 
         const _getTable=()=>{
 
             if(async_data.length==0){
                 return <h1>Loading data by staydate</h1>
             }
-            return <Table data={async_data}/>
+            return <Table data={async_data.lod}/>
         }
 
+        const _getChart=()=>{
+
+            if(async_data.length==0){
+                return <h1>Loading data by staydate</h1>
+            }
+
+            let chartData = {
+                PriceData: async_data.lod,
+                chartSettings: chartSettings
+            }
+
+            console.log('chartData: ', chartData)
+
+            return <PriceChart chartData={chartData}/>
+        }
+
+        
         return (
+
+
             <Paper style={styles.paper} zDepth={1}>
                 <Card >
 
-                    <h2 style={styles.head}>竞争对手价格(by staydate)</h2>
+                    <h2 style={styles.head}>竞争对手价格波动 - 入住日期{async_data.stay_date}</h2>
+                    {_getChart()}
                     {_getTable()}
 
                 </Card>

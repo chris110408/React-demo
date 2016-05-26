@@ -86,8 +86,7 @@ function PriceChart({PriceData}){
 
         })
 
-
-
+        console.log('Overview config: ', config)
 
         //temp replaced by above code
         //const HotelPrices = R.compose(R.pluck('price'),R.values)(PriceData.HOTEL_DATA)

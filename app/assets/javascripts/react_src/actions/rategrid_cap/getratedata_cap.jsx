@@ -24,7 +24,7 @@ function receiveAData(json) {
 function fetchAData() {
   return dispatch => {
     dispatch(requestAData())
-    return fetch(`http://localhost:8000/Boyi_5s_compset.json`)
+    return fetch(`http://localhost:8000/Boyi2_5s_compset.json`)
       .then(response => response.json())
       .then(json => dispatch(receiveAData(json)))
   }
